@@ -1,0 +1,11 @@
+select * from strings;
+__ Q __ find occurence of character or word in a string
+
+select name_string, 
+       length(name_string) as str_len, 
+	     replace(name_string, " ", "") as rep_name_string, 
+       length(replace(name_string, " ", ""))  as len_without_spaces,
+       length(name_string) - length(replace(name_string, " ", ""))  as no_of_spaces,
+	     length(name_string) - length(replace(name_string, " ", "")) + 1 as no_of_words,
+
+from strings;
