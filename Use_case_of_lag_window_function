@@ -1,0 +1,21 @@
+Suppose we have 3 columns in a table emp_no, salary, month
+
+emp_no    salary    month
+123       1000       jan
+123       2000       feb
+123       3000       march
+So, output should look like:
+
+emp_no    salary    month      diff
+123       1000       jan       1000
+123       2000       feb       1000
+123       3000       march
+
+
+
+select emp_no, 
+       salary, 
+       month,
+       lag(salary) over (partition by emp_no order by month) - salary as diff_to_prev,
+       lead(salary) over (partition by emp_no order by month) - salary as diff_to_next
+from emp_table;
