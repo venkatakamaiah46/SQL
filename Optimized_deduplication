@@ -1,5 +1,5 @@
 Q.keep latest updated records while deduplicate data
 
-select all_cols,max(update_dt) as latest_record
+select all_cols_except_update_dt,max(update_dt) as latest_record
 from table 
-group by all_cols
+group by all_cols_except_update_dt
